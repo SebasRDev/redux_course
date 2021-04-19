@@ -15,4 +15,4 @@ const useUsers = (API) =>{
   return [users];
 }
 
-export default useUsers;
+export default useUsers; 

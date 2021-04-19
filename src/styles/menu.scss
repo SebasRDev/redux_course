@@ -1,0 +1,18 @@
+.menu{
+  background-color: rgb(51, 172, 126);
+  padding: 0 40px;
+  display: flex;
+
+  .menu__item{
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 20px 30px;
+
+    &:hover{
+      color: rgb(51, 114, 172);
+    }
+  }
+} 
