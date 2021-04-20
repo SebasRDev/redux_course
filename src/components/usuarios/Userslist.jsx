@@ -1,13 +1,17 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import useUsers from '../../hooks/useUsers';
+
 
 const API = 'https://jsonplaceholder.typicode.com/users'
 
 
-const Userslist = () => {
+const Userslist = (props) => {
 
   const [users] = useUsers(API);
+
+  console.log(props);
 
   return(
     <div className="margin">
@@ -35,4 +39,8 @@ const Userslist = () => {
   )
 }
 
-export default Userslist;
+const mapStateToProps = (reducers) => {
+  return reducers.usuariosReducer;
+};
+
+export default connect(mapStateToProps, {/*Actions*/})(Userslist);

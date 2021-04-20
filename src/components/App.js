@@ -10,6 +10,7 @@ const App = () => {
       <Layout>
         <Switch>
           <Route path='/usuarios' component={Userslist}/>
+          <Route path='/usuarios' component={Userslist}/>
         </Switch>
       </Layout>
     </BrowserRouter>
