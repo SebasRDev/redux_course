@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
 
-import useUsers from '../../hooks/useUsers';
-
-
-const API = 'https://jsonplaceholder.typicode.com/users'
-
+import * as usuariosActions from '../../actions/usuariosActions';
 
 const Userslist = (props) => {
+  const { usuarios } = props;
 
-  const [users] = useUsers(API);
+  useEffect(()=>{
+    props.traerTodos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  console.log(props);
+  console.log(props.loading);
 
   return(
     <div className="margin">
@@ -24,7 +24,7 @@ const Userslist = (props) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => {
+          {usuarios.map((user) => {
             return(
               <tr key={user.id}>
                 <td>{user.name}</td>
@@ -43,4 +43,4 @@ const mapStateToProps = (reducers) => {
   return reducers.usuariosReducer;
 };
 
-export default connect(mapStateToProps, {/*Actions*/})(Userslist);
+export default connect(mapStateToProps, usuariosActions)(Userslist);
