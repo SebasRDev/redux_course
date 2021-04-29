@@ -1,4 +1,4 @@
-import {TRAER_USUARIOS, CARGANDO, ERROR} from '../types/typesUsuarios';
+import {TRAER_USUARIOS, CARGANDO, ERROR, FIN_CARGANDO} from '../types/typesUsuarios';
 
 const INITIAL_STATE = {
   usuarios: [],
@@ -10,17 +10,18 @@ export default (state = INITIAL_STATE, action) => {
   switch(action.type){
     case TRAER_USUARIOS:
       return {...state, 
-              usuarios: action.payload,
-              loading: false
+              usuarios: action.payload
             };
 
     case CARGANDO:
       return{ ...state, loading: true}
 
+    case FIN_CARGANDO:
+      return {...state, loading:false}
+
     case ERROR:
       return {...state,
-              error: action.payload,
-              loading: false
+              error: action.payload
             }
       
     default: return state;

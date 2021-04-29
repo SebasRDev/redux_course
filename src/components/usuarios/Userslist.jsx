@@ -12,11 +12,16 @@ const Userslist = (props) => {
     props.traerTodos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
+  const colocarInfo = () => {
+    if(props.loading){
+      return <Spiner/>
+    }
+    if (props.error){
+      return (<p>error</p>)
+    }
 
-  return(
-    <>
-      {props.loading && <Spiner/>}
-      {!props.loading && 
+    return(
       <div className="margin">
         <table className="tabla">
           <thead>
@@ -39,7 +44,13 @@ const Userslist = (props) => {
           </tbody>
         </table>
       </div>
-      }
+    )
+
+  }
+
+  return(
+    <>
+      {colocarInfo()}
     </>
   )
 }
